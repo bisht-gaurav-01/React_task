@@ -52,7 +52,7 @@ export const authApi = {
   login(credentials, signal) {
     return request('/auth/login', {
       method: 'POST',
-      body: { ...credentials, expiresInMins: 60 },
+      body: { ...credentials, expiresInMins: 30 },
       signal,
     })
   },

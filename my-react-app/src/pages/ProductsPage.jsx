@@ -25,8 +25,6 @@ import EditRoundedIcon from '@mui/icons-material/EditRounded'
 import SearchRoundedIcon from '@mui/icons-material/SearchRounded'
 import RestartAltRoundedIcon from '@mui/icons-material/RestartAltRounded'
 import { useAppDispatch, useAppSelector } from '../app/hooks'
-import MetricCard from '../components/MetricCard'
-import PageHeader from '../components/PageHeader'
 import ProductDialog from '../components/ProductDialog'
 import {
   clearProductsFeedback,
@@ -135,48 +133,13 @@ function ProductsPage() {
 
   return (
     <Stack spacing={3}>
-      <PageHeader
-        eyebrow="Products"
-        title="API-backed product table with CRUD"
-        description="This page fetches product rows through Redux Toolkit async thunks and supports read, add, edit, and delete actions directly inside the table view."
-        action={
-          <Button variant="contained" startIcon={<AddRoundedIcon />} onClick={handleCreateClick}>
+<Button variant="contained" startIcon={<AddRoundedIcon />} onClick={handleCreateClick}>
             Add product
           </Button>
-        }
-      />
-
-      <Box
-        sx={{
-          display: 'grid',
-          gridTemplateColumns: { xs: '1fr', md: 'repeat(3, minmax(0, 1fr))' },
-          gap: 2,
-        }}
-      >
-        <MetricCard
-          label="Matched records"
-          value={total}
-          helper="Total records returned by the current API query."
-        />
-        <MetricCard
-          label="Current page rows"
-          value={items.length}
-          helper="Rows currently available in Redux for this page."
-          accent="secondary.main"
-        />
-        <MetricCard
-          label="Search mode"
-          value={activeQuery ? 'Filtered' : 'All'}
-          helper={activeQuery ? `Search term: ${activeQuery}` : 'Showing the default product feed.'}
-        />
-      </Box>
+   
 
       <Paper elevation={0} sx={{ p: 3, border: '1px solid rgba(31, 24, 18, 0.08)' }}>
         <Stack spacing={2.5}>
-          <Alert severity="info">
-            DummyJSON simulates add, edit, and delete operations. The table updates from Redux
-            immediately, while a full refresh reloads the server dataset.
-          </Alert>
 
           <Stack
             direction={{ xs: 'column', md: 'row' }}

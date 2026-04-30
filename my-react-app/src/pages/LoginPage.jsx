@@ -4,7 +4,6 @@ import {
   Box,
   Button,
   Container,
-  Link as MuiLink,
   Paper,
   Stack,
   TextField,
@@ -12,7 +11,7 @@ import {
 } from '@mui/material'
 import LoginRoundedIcon from '@mui/icons-material/LoginRounded'
 import TaskAltRoundedIcon from '@mui/icons-material/TaskAltRounded'
-import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { useAppDispatch, useAppSelector } from '../app/hooks'
 import { loginUser, selectAuthState } from '../features/auth/authSlice'
 
@@ -69,14 +68,6 @@ function LoginPage() {
             }}
           >
             <Stack spacing={3}>
-              <Typography variant="overline" sx={{ letterSpacing: '0.16em', fontWeight: 700 }}>
-                React interview task
-              </Typography>
-              <Typography variant="h2">Build once, explain confidently in the interview.</Typography>
-              <Typography sx={{ color: 'rgba(255,247,239,0.8)', maxWidth: 520 }}>
-                This flow authenticates against DummyJSON, stores the JWT in local storage,
-                restores the session on refresh, and opens the Redux-backed product workspace.
-              </Typography>
               <Paper
                 elevation={0}
                 sx={{
@@ -110,9 +101,7 @@ function LoginPage() {
             <Stack spacing={2.5}>
               <Box>
                 <Typography variant="h4">Sign in</Typography>
-                <Typography sx={{ mt: 1, color: 'text.secondary' }}>
-                  Login to access the protected products dashboard and CRUD studio.
-                </Typography>
+            
               </Box>
 
               {location.state?.registeredUser ? (
@@ -148,13 +137,6 @@ function LoginPage() {
               >
                 {loginStatus === 'pending' ? 'Signing in...' : 'Sign in'}
               </Button>
-
-              <Typography sx={{ color: 'text.secondary' }}>
-                Need the registration page too?{' '}
-                <MuiLink component={Link} to="/register" underline="hover">
-                  Create a simulated account
-                </MuiLink>
-              </Typography>
             </Stack>
           </Paper>
         </Box>
