@@ -6,7 +6,6 @@ import GuestRoute from './components/GuestRoute'
 import ProtectedRoute from './components/ProtectedRoute'
 import { bootstrapAuth, selectAuthState } from './features/auth/authSlice'
 import LoginPage from './pages/LoginPage'
-import ProductCrudPage from './pages/ProductCrudPage'
 import ProductsPage from './pages/ProductsPage'
 import RegisterPage from './pages/RegisterPage'
 
@@ -40,7 +39,6 @@ function App() {
         <Route element={<ProtectedRoute />}>
           <Route element={<AppLayout />}>
             <Route path="/products" element={<ProductsPage />} />
-            <Route path="/products/manage" element={<ProductCrudPage />} />
           </Route>
         </Route>
 

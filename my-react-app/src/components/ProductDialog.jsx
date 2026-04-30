@@ -29,11 +29,10 @@ function ProductDialog({ mode, open, initialValues, pending, onClose, onSubmit }
   const handleChange = (event) => {
     const { name, value } = event.target
     setFormValues((currentValues) => ({ ...currentValues, [name]: value }))
+    setErrors((currentErrors) => ({ ...currentErrors, [name]: undefined }))
   }
 
-  const handleSubmit = (event) => {
-    event.preventDefault()
-
+  const submitForm = () => {
     const nextErrors = {}
 
     if (!formValues.title.trim()) {
@@ -71,6 +70,11 @@ function ProductDialog({ mode, open, initialValues, pending, onClose, onSubmit }
       stock: Number(formValues.stock),
       rating: formValues.rating === '' ? 0 : Number(formValues.rating),
     })
+  }
+
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    submitForm()
   }
 
   return (
@@ -171,7 +175,7 @@ function ProductDialog({ mode, open, initialValues, pending, onClose, onSubmit }
         <Button onClick={onClose} disabled={pending}>
           Cancel
         </Button>
-        <Button type="submit" variant="contained" disabled={pending}>
+        <Button type="button" variant="contained" disabled={pending} onClick={submitForm}>
           {mode === 'create' ? 'Save product' : 'Update product'}
         </Button>
       </DialogActions>

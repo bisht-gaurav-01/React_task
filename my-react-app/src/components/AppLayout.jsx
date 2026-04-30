@@ -11,7 +11,6 @@ import {
 import Inventory2RoundedIcon from '@mui/icons-material/Inventory2Rounded'
 import LogoutRoundedIcon from '@mui/icons-material/LogoutRounded'
 import TableRowsRoundedIcon from '@mui/icons-material/TableRowsRounded'
-import TuneRoundedIcon from '@mui/icons-material/TuneRounded'
 import { NavLink, Outlet, useNavigate } from 'react-router-dom'
 import { useAppDispatch, useAppSelector } from '../app/hooks'
 import { logout, selectAuthState } from '../features/auth/authSlice'
@@ -21,11 +20,6 @@ const navigationItems = [
     label: 'Product Table',
     icon: <TableRowsRoundedIcon fontSize="small" />,
     to: '/products',
-  },
-  {
-    label: 'CRUD Studio',
-    icon: <TuneRoundedIcon fontSize="small" />,
-    to: '/products/manage',
   },
 ]
 
@@ -79,8 +73,9 @@ function AppLayout() {
                   />
                   <Typography variant="h3">Northstar Inventory Desk</Typography>
                   <Typography sx={{ color: 'rgba(255, 247, 239, 0.8)', maxWidth: 620 }}>
-                    A polished interview build with guarded authentication, Redux-managed
-                    product state, and a dedicated CRUD workspace on top of DummyJSON.
+                    A polished interview build with guarded authentication and a Redux-managed
+                    product table that supports read, add, edit, and delete flows on top of
+                    DummyJSON.
                   </Typography>
                 </Stack>
 
