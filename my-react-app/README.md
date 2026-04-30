@@ -1,16 +1,66 @@
-# React + Vite
+# Northstar Inventory Desk
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React + Vite interview project that demonstrates:
 
-Currently, two official plugins are available:
+- Redux Toolkit state management with async thunks
+- Protected authentication flow using DummyJSON
+- JWT persistence in `localStorage`
+- Product table data fetched through Redux
+- CRUD operations with optimistic UI updates against DummyJSON's simulated product endpoints
+- Material UI based interface with responsive layouts
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Tech Stack
 
-## React Compiler
+- React 19
+- Vite 8
+- Redux Toolkit
+- React Redux
+- React Router DOM
+- Material UI
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Getting Started
 
-## Expanding the ESLint configuration
+```bash
+npm install
+npm run dev
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Production verification:
+
+```bash
+npm run lint
+npm run build
+```
+
+## Demo Credentials
+
+Use DummyJSON's sample account:
+
+- Username: `emilys`
+- Password: `emilyspass`
+
+## Project Structure
+
+```text
+src/
+  api/          API helpers for DummyJSON
+  app/          Redux store and shared hooks
+  components/   Reusable UI building blocks
+  features/     Auth and products Redux slices
+  pages/        Route-level screens
+  utils/        Browser storage helpers
+```
+
+## Key Implementation Choices
+
+- `createAsyncThunk` is used for all API requests so async behavior stays in Redux rather than inside page components.
+- Authentication is restored on refresh via a bootstrap thunk that reads the stored token and rehydrates the current user.
+- Products are requested from Redux on both the list page and the CRUD page, keeping the UI aligned with the task requirement to source data from the store.
+- Registration uses DummyJSON's simulated user creation endpoint. Because DummyJSON does not persist newly created accounts for authentication, the UI clearly communicates that limitation.
+- Product create, update, and delete endpoints are also simulated by DummyJSON. The Redux slice updates local state immediately so the interface behaves like a real admin panel.
+
+## Notes for Interview Discussion
+
+- The assignment mentions a "todo application", but the API steps center on authentication and products. This implementation follows the detailed functional steps and delivers a product-management dashboard.
+- The CRUD studio intentionally highlights total records and quick metrics so the dedicated records page is more informative than a simple table.
+- Vite build chunking is configured to split larger dependency groups for a cleaner production output.
