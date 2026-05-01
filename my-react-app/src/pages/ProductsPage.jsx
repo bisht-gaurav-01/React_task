@@ -109,6 +109,10 @@ function ProductsPage() {
     setSelectedProduct(null)
   }
 
+  console.log("rowsPerPage",rowsPerPage)
+    
+  console.log("page",page)
+
   const handleDialogSubmit = async (payload) => {
     const action =
       dialogMode === 'create'
@@ -130,6 +134,7 @@ function ProductsPage() {
       setSnackbarMessage(`Updated ${result.payload.title}.`)
     }
   }
+    console.log("dialogOpen",dialogOpen)
 
   return (
     <Stack spacing={3}>

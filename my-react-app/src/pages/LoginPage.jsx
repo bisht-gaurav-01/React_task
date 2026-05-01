@@ -38,6 +38,7 @@ function LoginPage() {
     setCredentials((currentValues) => ({ ...currentValues, [name]: value }))
   }
 
+  console.log("credentials",credentials)
   const handleSubmit = async (event) => {
     event.preventDefault()
     const result = await dispatch(loginUser(credentials))

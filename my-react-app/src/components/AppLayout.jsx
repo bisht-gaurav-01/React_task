@@ -67,7 +67,7 @@ function AppLayout() {
                     <Box sx={{ flex: 1 }}>
                       <Typography fontWeight={700}>
                         {user?.firstName
-                          ? `${user.firstName} ${user.lastName || ''}`.trim()
+                          ? `${user?.firstName} ${user?.lastName || ''}`.trim()
                           : user?.username}
                       </Typography>
                       <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.72)' }}>

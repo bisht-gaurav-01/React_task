@@ -76,7 +76,7 @@ function ProductDialog({ mode, open, initialValues, pending, onClose, onSubmit }
     event.preventDefault()
     submitForm()
   }
-
+console.log("formValues",formValues)
   return (
     <Dialog
       open={open}

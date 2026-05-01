@@ -35,9 +35,10 @@ The main challenge was  full CRUD, but DummyJSON does not persist product mutati
 
 
 
-- store login details locally and if refresh it will not affect.
-- validation will show when save without data in add product.
+- store login details locally and if refresh store details will not affect.
+- In add product validation will show when save without data.
 - protected routing, so products are only visible after authentication
 - use redux data flow.
 - CRUD functionality in the product table.
-- better table visibility by showing details properly
+- better table visibility by showing details properly and use icon in ui. 
+- for clean and readable code structure make seperate components for all.
